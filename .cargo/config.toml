@@ -1,0 +1,2 @@
+[alias]
+docs-preview = "run --bin preview-docs"
