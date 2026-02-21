@@ -30,7 +30,7 @@ static DOC_ITEMS: [NavItem; 1] = [NavItem {
     hint: "Start here",
 }];
 
-static GUIDE_ITEMS: [NavItem; 6] = [
+static GUIDE_ITEMS: [NavItem; 7] = [
     NavItem {
         slug: "guides",
         label: "Guides home",
@@ -55,6 +55,11 @@ static GUIDE_ITEMS: [NavItem; 6] = [
         slug: "guides/novels",
         label: "Novels (EPUB)",
         hint: "Import + reading",
+    },
+    NavItem {
+        slug: "guides/jellyfin-setup",
+        label: "Jellyfin setup",
+        hint: "Configure Jellyfin for Manatan",
     },
     NavItem {
         slug: "guides/troubleshooting",
@@ -96,7 +101,7 @@ static NAV_SECTIONS: [NavSection; 3] = [
     },
 ];
 
-static PAGES: [DocPage; 10] = [
+static PAGES: [DocPage; 11] = [
     DocPage {
         slug: "",
         source: include_str!("../docs/index.md"),
@@ -120,6 +125,10 @@ static PAGES: [DocPage; 10] = [
     DocPage {
         slug: "guides/novels",
         source: include_str!("../docs/guides/novels.md"),
+    },
+    DocPage {
+        slug: "guides/jellyfin-setup",
+        source: include_str!("../docs/guides/jellyfin-setup.md"),
     },
     DocPage {
         slug: "guides/troubleshooting",
