@@ -46,6 +46,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .route("/docs", get(docs_index_handler))
         .route("/docs/", get(docs_index_handler))
         .route("/docs/{*path}", get(docs_page_handler))
+        .route("/assets/{*path}", get(assets_handler))
         .route("/__preview/version", get(preview_version_handler))
         .with_state(state);
 
@@ -75,6 +76,35 @@ async fn preview_version_handler(State(state): State<AppState>) -> Response {
         .header(CACHE_CONTROL, "no-store")
         .body(Body::from(version.to_string()))
         .unwrap()
+}
+
+async fn assets_handler(Path(path): Path<String>) -> Response {
+    let asset_path = FsPath::new(env!("CARGO_MANIFEST_DIR")).join("assets").join(&path);
+    
+    match fs::read(&asset_path) {
+        Ok(content) => {
+            let content_type = match asset_path.extension().and_then(|s| s.to_str()) {
+                Some("png") => "image/png",
+                Some("jpg") | Some("jpeg") => "image/jpeg",
+                Some("gif") => "image/gif",
+                Some("svg") => "image/svg+xml",
+                Some("webp") => "image/webp",
+                _ => "application/octet-stream",
+            };
+            
+            Response::builder()
+                .status(StatusCode::OK)
+                .header(CONTENT_TYPE, content_type)
+                .body(Body::from(content))
+                .unwrap()
+        }
+        Err(_) => {
+            Response::builder()
+                .status(StatusCode::NOT_FOUND)
+                .body(Body::from("Asset not found"))
+                .unwrap()
+        }
+    }
 }
 
 fn render_docs_response(slug: &str) -> Response {
@@ -225,6 +255,7 @@ fn markdown_path_for_slug(slug: &str) -> Option<&'static str> {
         "guides/local-manga" => Some("docs/guides/local-manga.md"),
         "guides/local-anime" => Some("docs/guides/local-anime.md"),
         "guides/novels" => Some("docs/guides/novels.md"),
+        "guides/jellyfin-setup" => Some("docs/guides/jellyfin-setup.md"),
         "guides/troubleshooting" => Some("docs/guides/troubleshooting.md"),
         "faq" => Some("docs/faq/index.md"),
         "faq/general" => Some("docs/faq/general.md"),
@@ -544,6 +575,13 @@ const HTML_TEMPLATE: &str = r#"<!doctype html>
       }
 
       .content pre code { background: transparent; border: none; padding: 0; }
+
+      .content img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+        margin: 10px 0;
+      }
 
       .fix-prompt {
         margin-top: 26px;
