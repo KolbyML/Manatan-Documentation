@@ -15,16 +15,34 @@ Manatan can play anime stored locally on your device.
 
 If you add episodes later, refresh the episode list.
 
-## 2) Supported folder structure
+## 2) Supported folder structures
 
-Use one folder per series, with video files directly inside.
+### Single folder format
+
+You may use one folder per series, with video files directly inside.
 
 ```text
-[Local anime folder]/
-  My Anime Title/
-    cover.jpg
-    ep01.mp4
-    ep02.mkv
+📁 [Local anime folder]
+├─ 📁 My Anime Title
+│   ├─ 🖼️ cover.jpg
+│   ├─ 🎥 ep01.mp4
+│   └─ 🎥 ep02.mkv
+```
+### Multiseason format
+
+Manatan also supports libraries with seasonal folders.
+
+```text
+📁 [Local anime folder]
+├─ 📁 My Anime Title
+│   ├─ 📁 Season 1
+│   │   ├─ 🖼️ cover.jpg
+│   │   ├─ 🎥 ep01.mp4
+│   │   └─ 🎥 ep02.mkv
+│   └─ 📁 Season 2
+│       ├─ 🖼️ cover.jpg
+│       ├─ 🎥 ep01.mp4
+│       └─ 🎥 ep02.mkv
 ```
 
 Common formats are `.mp4` and `.mkv`.
