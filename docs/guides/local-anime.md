@@ -19,7 +19,7 @@ If you add episodes later, refresh the episode list.
 
 ### Single folder format
 
-You may use one folder per series, with video files directly inside. Use the tree below for a visual example:
+You may use one folder per series, with video files directly inside.
 
 ```text
 📁 [Local anime folder]
@@ -30,7 +30,7 @@ You may use one folder per series, with video files directly inside. Use the tre
 ```
 ### Multiseason format
 
-Manatan also supports libraries with seasonal folders. A typical layout looks like this:
+Manatan also supports libraries with seasonal folders.
 
 ```text
 📁 [Local anime folder]
