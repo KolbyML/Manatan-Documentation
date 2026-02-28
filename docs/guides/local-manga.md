@@ -15,7 +15,7 @@ Manatan can read manga stored locally on your device.
 
 If you add new chapters later, refresh the chapter list.
 
-## 2) Supported folder structure
+## 2) Supported folder structures
 
 Inside your local manga folder:
 
@@ -25,24 +25,24 @@ Inside your local manga folder:
 ### Chapter folders (recommended)
 
 ```text
-[Local Manga folder]/
-  My Series Title/
-    cover.jpg
-    001/
-      001.jpg
-      002.jpg
-    002/
-      001.jpg
-      002.jpg
+📁 [Local Manga folder]
+├─ 📁 My Series Title
+│   ├─ 🖼️ cover.jpg
+│   ├─ 📁 001
+│   │   ├─ 🖼️ 001.jpg
+│   │   └─ 🖼️ 002.jpg
+│   └─ 📁 002
+│       ├─ 🖼️ 001.jpg
+│       └─ 🖼️ 002.jpg
 ```
 
 ### Archive chapters
 
 ```text
-[Local Manga folder]/
-  My Series Title/
-    001.cbz
-    002.cbz
+📁 [Local Manga folder]
+├─ 📁 My Series Title
+│   ├─ 📦 001.cbz
+│   └─ 📦 002.cbz
 ```
 
 Supported chapter formats include image folders and archive files such as `.zip`/`.cbz` and `.rar`/`.cbr`.
