@@ -26,6 +26,7 @@ Manatan supports:
 - [Local manga](/docs/guides/local-manga)
 - [Local anime](/docs/guides/local-anime)
 - [Novels (EPUB)](/docs/guides/novels)
+- [Kiku Anki Card Type Setup](/docs/guides/kiku-guide)
 - [Jellyfin setup](/docs/guides/jellyfin-setup)
 - [Troubleshooting](/docs/guides/troubleshooting)
 
