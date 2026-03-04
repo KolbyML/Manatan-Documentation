@@ -1,12 +1,12 @@
 # Setup Kiku for Manatan 
-Kiku is a fully interactive Anki note type designed for Japanese learners. For more info please refer to the [official website](https://kiku.youyoumu.my.id/).
+Kiku is a fully interactive Anki card type designed for Japanese learners. For more info please refer to the [official website](https://kiku.youyoumu.my.id/).
 
-```WARNING: Anki 25.09 or later is required.```
+```WARNING FOR DESKTOP USERS: Anki 25.09 or later is required.```
 
-## 1) Installing the note type
-Download the latest release ```Kiku_v*.apkg``` from [Releases](https://github.com/youyoumu/kiku/releases/latest), and then import it to your Anki.
+## 1) Installing the card type
+Download the latest release ```Kiku_v*.apkg``` from [Github Releases](https://github.com/youyoumu/kiku/releases/latest), and then import it into your Anki.
 
-## 2) Setting up anki fields
+## 2) Setting up Anki fields
 Open Manatan, go to ```Manatan settings``` and make sure the ```Enable AnkiConnect``` setting is turned on. 
 
 You will see the text ```Connected``` in green letters.

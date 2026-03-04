@@ -30,7 +30,7 @@ static DOC_ITEMS: [NavItem; 1] = [NavItem {
     hint: "Start here",
 }];
 
-static GUIDE_ITEMS: [NavItem; 7] = [
+static GUIDE_ITEMS: [NavItem; 9] = [
     NavItem {
         slug: "guides",
         label: "Guides home",
@@ -40,6 +40,11 @@ static GUIDE_ITEMS: [NavItem; 7] = [
         slug: "guides/getting-started",
         label: "Getting started",
         hint: "Install + first steps",
+    },
+    NavItem {
+        slug: "guides/ankiconnect-guide",
+        label: "Ankiconnect setup",
+        hint: "Configure Anki settings",
     },
     NavItem {
         slug: "guides/local-manga",
@@ -55,6 +60,11 @@ static GUIDE_ITEMS: [NavItem; 7] = [
         slug: "guides/novels",
         label: "Novels (EPUB)",
         hint: "Import + reading",
+    },
+    NavItem {
+        slug: "guides/kiku-guide",
+        label: "Kiku flashcard setup",
+        hint: "Configure Kiku card type",
     },
     NavItem {
         slug: "guides/jellyfin-setup",
@@ -101,7 +111,7 @@ static NAV_SECTIONS: [NavSection; 3] = [
     },
 ];
 
-static PAGES: [DocPage; 11] = [
+static PAGES: [DocPage; 13] = [
     DocPage {
         slug: "",
         source: include_str!("../docs/index.md"),
@@ -115,6 +125,10 @@ static PAGES: [DocPage; 11] = [
         source: include_str!("../docs/guides/getting-started.md"),
     },
     DocPage {
+        slug: "guides/ankiconnect-guide",
+        source: include_str!("../docs/guides/ankiconnect-guide.md"),
+    },
+    DocPage {
         slug: "guides/local-manga",
         source: include_str!("../docs/guides/local-manga.md"),
     },
@@ -125,6 +139,10 @@ static PAGES: [DocPage; 11] = [
     DocPage {
         slug: "guides/novels",
         source: include_str!("../docs/guides/novels.md"),
+    },
+    DocPage {
+        slug: "guides/kiku-guide",
+        source: include_str!("../docs/guides/kiku-guide.md"),
     },
     DocPage {
         slug: "guides/jellyfin-setup",
