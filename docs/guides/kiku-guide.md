@@ -33,8 +33,8 @@ Select your desired `Target Deck` and select ```Kiku``` as the `Card Type`, then
 | IsClickCard           |                                                                                                                                                            |
 | IsSentenceCard        |                                                                                                                                                            |
 | IsAudioCard           |                                                                                                                                                            |
-| PitchPosition         | `Pitch Accent`                                                                                                                                 |
-| PitchCategories       |                                                                                                                         |
+| PitchPosition         | `Pitch Accent Positions`                                                                                                                                 |
+| PitchCategories       | `Pitch Accent Categories`                                                                                                                        |
 | Frequency             | `Frequency`                                                                                                                                            |
 | FreqSort              | `Harmonic Frequency`                                                                                                                                |
 | MiscInfo              | `Media Name`    |
