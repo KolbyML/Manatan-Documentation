@@ -49,7 +49,7 @@ static GUIDE_ITEMS: [NavItem; 9] = [
     NavItem {
         slug: "guides/local-manga",
         label: "Local manga",
-        hint: "Folder structure + formats",
+        hint: "Folders, archives, EPUB",
     },
     NavItem {
         slug: "guides/local-anime",

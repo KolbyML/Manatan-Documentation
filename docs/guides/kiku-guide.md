@@ -9,7 +9,7 @@ Download the latest release ```Kiku_v*.apkg``` from [Github Releases](https://gi
 ## 2) Setting up Anki fields
 Open Manatan, go to ```Manatan settings``` and make sure the ```Enable AnkiConnect``` setting is turned on. 
 
-You will see the text ```Connected``` in green letters.
+You will see the text ```Connected```.
 
 Select your desired `Target Deck` and select ```Kiku``` as the `Card Type`, then configure the following fields:
 

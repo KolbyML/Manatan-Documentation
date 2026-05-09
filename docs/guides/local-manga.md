@@ -5,7 +5,7 @@ description: Supported local manga folder structures for Manatan.
 
 # Local manga
 
-Manatan can read manga stored locally on your device.
+Manatan can read manga stored locally on your device from image folders, chapter archives, and EPUB files.
 
 ## 1) Set your local manga folder
 
@@ -20,7 +20,7 @@ If you add new chapters later, refresh the chapter list.
 Inside your local manga folder:
 
 - one folder per series
-- each chapter is either a folder of images or one archive file
+- each chapter is a folder of images, one archive file, or one EPUB file
 
 ### Chapter folders (recommended)
 
@@ -45,14 +45,25 @@ Inside your local manga folder:
 │   └─ 📦 002.cbz
 ```
 
-Supported chapter formats include image folders and archive files such as `.zip`/`.cbz` and `.rar`/`.cbr`.
+### EPUB manga files
+
+Use one EPUB per volume or chapter inside the series folder.
+
+```text
+📁 [Local Manga folder]
+├─ 📁 My Series Title
+│   ├─ 📘 Volume 01.epub
+│   └─ 📘 Volume 02.epub
+```
+
+Supported local manga formats include image folders, `.zip`/`.cbz`, `.rar`/`.cbr`, and `.epub` files.
 
 ## Common issues
 
 ### My series does not show up
 
 1. Confirm the folder path is correct.
-2. Confirm chapter folders/files are inside the series folder.
+2. Confirm chapter folders, archive files, or EPUB files are inside the series folder.
 3. Refresh the list.
 
 ### Chapters are in the wrong order

@@ -79,8 +79,10 @@ async fn preview_version_handler(State(state): State<AppState>) -> Response {
 }
 
 async fn assets_handler(Path(path): Path<String>) -> Response {
-    let asset_path = FsPath::new(env!("CARGO_MANIFEST_DIR")).join("assets").join(&path);
-    
+    let asset_path = FsPath::new(env!("CARGO_MANIFEST_DIR"))
+        .join("assets")
+        .join(&path);
+
     match fs::read(&asset_path) {
         Ok(content) => {
             let content_type = match asset_path.extension().and_then(|s| s.to_str()) {
@@ -91,19 +93,17 @@ async fn assets_handler(Path(path): Path<String>) -> Response {
                 Some("webp") => "image/webp",
                 _ => "application/octet-stream",
             };
-            
+
             Response::builder()
                 .status(StatusCode::OK)
                 .header(CONTENT_TYPE, content_type)
                 .body(Body::from(content))
                 .unwrap()
         }
-        Err(_) => {
-            Response::builder()
-                .status(StatusCode::NOT_FOUND)
-                .body(Body::from("Asset not found"))
-                .unwrap()
-        }
+        Err(_) => Response::builder()
+            .status(StatusCode::NOT_FOUND)
+            .body(Body::from("Asset not found"))
+            .unwrap(),
     }
 }
 
@@ -152,10 +152,17 @@ fn render_sidebar_html(active_slug: &str) -> String {
     let mut html = String::new();
 
     for section in sections {
-        html.push_str(&format!("<div class=\"section\">{}</div>", escape_html(section.label)));
+        html.push_str(&format!(
+            "<div class=\"section\">{}</div>",
+            escape_html(section.label)
+        ));
 
         for item in section.items {
-            let active_class = if item.slug == active_slug { " active" } else { "" };
+            let active_class = if item.slug == active_slug {
+                " active"
+            } else {
+                ""
+            };
             html.push_str(&format!(
                 "<a class=\"item{}\" href=\"{}\">{}<span>{}</span></a>",
                 active_class,
@@ -268,7 +275,8 @@ fn markdown_path_for_slug(slug: &str) -> Option<&'static str> {
 }
 
 fn preview_version_value() -> u64 {
-    latest_docs_timestamp(FsPath::new(env!("CARGO_MANIFEST_DIR")).join("docs"))
+    let root = FsPath::new(env!("CARGO_MANIFEST_DIR"));
+    latest_docs_timestamp(root.join("docs")).max(latest_docs_timestamp(root.join("assets")))
 }
 
 fn latest_docs_timestamp(path: PathBuf) -> u64 {
@@ -312,7 +320,9 @@ const HTML_TEMPLATE: &str = r#"<!doctype html>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="rgb(2, 132, 199)" />
     <title>{{TITLE}} - Preview</title>
+    <link rel="icon" type="image/png" sizes="256x256" href="/assets/logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -321,15 +331,15 @@ const HTML_TEMPLATE: &str = r#"<!doctype html>
     />
     <style>
       :root {
-        --bg: #0b0e14;
-        --panel: rgba(255, 255, 255, 0.03);
-        --border: rgba(255, 255, 255, 0.08);
+        --bg: #050814;
+        --panel: rgba(8, 17, 33, 0.72);
+        --border: rgba(148, 208, 255, 0.13);
         --text: #f0f4f8;
         --text-muted: #94a3b8;
-        --link: #7dd3fc;
-        --link-hover: #a7f3d0;
-        --link-underline: rgba(125, 211, 252, 0.38);
-        --link-underline-hover: rgba(167, 243, 208, 0.55);
+        --link: #38bdf8;
+        --link-hover: #93c5fd;
+        --link-underline: rgba(56, 189, 248, 0.42);
+        --link-underline-hover: rgba(147, 197, 253, 0.6);
         --radius: 18px;
         --shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.5);
         --nav-height: 72px;
@@ -355,7 +365,7 @@ const HTML_TEMPLATE: &str = r#"<!doctype html>
         left: -10%;
         width: 60%;
         height: 60%;
-        background: radial-gradient(circle, rgba(46, 204, 113, 0.09), transparent 70%);
+        background: radial-gradient(circle, rgba(14, 165, 233, 0.13), transparent 70%);
         pointer-events: none;
         z-index: -1;
       }
@@ -367,7 +377,7 @@ const HTML_TEMPLATE: &str = r#"<!doctype html>
         right: -15%;
         width: 70%;
         height: 70%;
-        background: radial-gradient(circle, rgba(52, 152, 219, 0.09), transparent 70%);
+        background: radial-gradient(circle, rgba(37, 99, 235, 0.12), transparent 70%);
         pointer-events: none;
         z-index: -1;
       }
@@ -376,7 +386,7 @@ const HTML_TEMPLATE: &str = r#"<!doctype html>
       a:hover { text-decoration: underline; text-underline-offset: 3px; }
       h1, h2, h3 {
         font-family: "Space Grotesk", sans-serif;
-        letter-spacing: -0.02em;
+        letter-spacing: 0;
         margin: 0;
       }
       p { margin: 0; }
@@ -390,7 +400,7 @@ const HTML_TEMPLATE: &str = r#"<!doctype html>
         height: var(--nav-height);
         display: flex;
         align-items: center;
-        background: rgba(11, 14, 20, 0.72);
+        background: rgba(5, 8, 20, 0.78);
         backdrop-filter: blur(14px);
         -webkit-backdrop-filter: blur(14px);
         border-bottom: 1px solid var(--border);
@@ -412,11 +422,12 @@ const HTML_TEMPLATE: &str = r#"<!doctype html>
       }
 
       .logo-dot {
-        width: 30px;
-        height: 30px;
-        border-radius: 999px;
-        background: radial-gradient(circle at 30% 30%, #6ae7a6, #2ecc71 42%, #3498db 100%);
-        box-shadow: 0 14px 34px -18px rgba(46, 204, 113, 0.55);
+        width: 32px;
+        height: 32px;
+        border-radius: 9px;
+        background: url("/assets/logo.png") center / cover no-repeat;
+        box-shadow: 0 14px 34px -18px rgba(14, 165, 233, 0.75);
+        flex: 0 0 auto;
       }
 
       .nav-links {
@@ -603,12 +614,12 @@ const HTML_TEMPLATE: &str = r#"<!doctype html>
         display: block;
         margin-bottom: 6px;
         font-family: "Space Grotesk", sans-serif;
-        letter-spacing: -0.01em;
+        letter-spacing: 0;
       }
 
       .callout.tip {
-        border-color: rgba(46, 204, 113, 0.22);
-        background: rgba(46, 204, 113, 0.06);
+        border-color: rgba(14, 165, 233, 0.24);
+        background: rgba(14, 165, 233, 0.08);
       }
 
       .hero-actions {

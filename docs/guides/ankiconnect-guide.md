@@ -12,7 +12,7 @@ Install and start Anki.
 
 1. Start Manatan, the WEB UI page will open.
 2. On the left hand side panel, click on ```Manatan``` to open the Manatan settings.
-3. Scroll down to the ```AnkiConnect Integration``` section and you will see ```Enable AnkiConnect```. Click on it and you should then see the text ```Connected``` in green letters.
+3. Scroll down to the ```AnkiConnect Integration``` section and you will see ```Enable AnkiConnect```. Click on it and you should then see the text ```Connected```.
 4. Select the ```Target Deck``` and ```Card Type``` you would like to use. You also need to fill out the ```Field Mapping``` section. Select from the drop down menus the content you want sent to your card type's fields.
 
 # Anki for Android
@@ -22,7 +22,7 @@ Download the ```AnkiDroid Flashcards``` app.
 ## 1) Setting up Anki settings in Manatan
 
 1. Open the Manatan app.
-2. Tap on ```More``` > ```Manatan Settings``` > ```Enable AnkiConnect```. You should then see the text ```Connected``` in green letters.
+2. Tap on ```More``` > ```Manatan Settings``` > ```Enable AnkiConnect```. You should then see the text ```Connected```.
 3. Select the ```Target Deck``` and ```Card Type``` you would like to use. You also need to fill out the ```Field Mapping``` section. Select from the drop down menus the content you want sent to your card type's fields.
 
 ## Optional: Enable Image Cropper

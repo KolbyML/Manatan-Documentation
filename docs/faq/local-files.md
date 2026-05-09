@@ -9,7 +9,7 @@ Common questions about local folder structures and refresh behavior.
 
 ## What is the local manga folder structure?
 
-Use one folder per series, with chapter folders or chapter archives inside.
+Use one folder per series, with chapter folders, chapter archives, or EPUB manga files inside.
 
 ```text
 [Local Manga folder]/
@@ -19,6 +19,7 @@ Use one folder per series, with chapter folders or chapter archives inside.
       001.jpg
       002.jpg
     002.cbz
+    Volume 03.epub
 ```
 
 Full guide: [Local manga](/docs/guides/local-manga)

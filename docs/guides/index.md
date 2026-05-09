@@ -11,7 +11,7 @@ Step-by-step pages for setup and common tasks.
 
 - [Getting started](/docs/guides/getting-started) - install and first setup
 - [Anki Setup](/docs/guides/ankiconnect-guide) - setting up Anki for flashcard creation
-- [Local manga](/docs/guides/local-manga) - supported folder structures and formats
+- [Local manga](/docs/guides/local-manga) - image folders, archives, and EPUB manga files
 - [Local anime](/docs/guides/local-anime) - supported folder structures and formats
 - [Novels (EPUB)](/docs/guides/novels) - importing and reading EPUB files
 - [Kiku Anki Card Type Setup](/docs/guides/kiku-guide) - setting up Kiku flashcards
