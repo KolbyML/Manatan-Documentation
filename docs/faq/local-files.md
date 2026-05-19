@@ -9,11 +9,13 @@ Common questions about local folder structures and refresh behavior.
 
 ## What is the local manga folder structure?
 
-Use one folder per series, with chapter folders, chapter archives, or EPUB manga files inside. For one-shots or single-volume archives, you can also put `.epub`, `.zip`, or `.cbz` files directly in the root of your local manga folder.
+Use one folder per series, with chapter folders, chapter archives, or EPUB manga files inside. For one-shots or single-volume archives, you can also put `.epub`, `.zip`, `.cbz`, `.rar`, or `.cbr` files directly in the root of your local manga folder.
 
 ```text
 [Local Manga folder]/
   Look Back.cbz
+  Bonus Chapter.cbr
+  My One Shot.rar
   Full Color Volume.epub
   My Series Title/
     cover.jpg
@@ -21,6 +23,7 @@ Use one folder per series, with chapter folders, chapter archives, or EPUB manga
       001.jpg
       002.jpg
     002.cbz
+    003.cbr
     Volume 03.epub
 ```
 
